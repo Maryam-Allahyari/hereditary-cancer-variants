@@ -1,0 +1,39 @@
+# Command-line tools and Python packages for the analysis (run inside WSL/Linux).
+# Create:  mamba env create -f environment.yml
+# Exact versions that were resolved are saved in environment.lock.yml.
+#
+# Not in this environment (run from pinned containers instead):
+#   VEP (ensemblorg/ensembl-vep), hap.py, DeepVariant, Manta, BAMSurgeon
+name: hereditary-cancer
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.12
+
+  # Reads, alignment, variant calling
+  - fastp
+  - bwa-mem2
+  - samtools
+  - bcftools
+  - htslib            # bgzip, tabix
+  - gatk4
+
+  # QC and family checks
+  - mosdepth
+  - multiqc
+  - somalier
+  - slivar
+
+  # Python: VCFs, tables, APIs, models, tests
+  - cyvcf2
+  - pysam
+  - pandas
+  - polars
+  - pyarrow
+  - python-duckdb
+  - requests
+  - scikit-learn
+  - shap
+  - matplotlib
+  - pytest
